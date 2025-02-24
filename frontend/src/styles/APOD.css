@@ -1,0 +1,112 @@
+  /* 🌌 APOD Page */
+  .apod-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #0d1b2a;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ✨ Page Title */
+  .apod-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ff9800;
+  }
+
+  /* 📅 Date Picker */
+  .date-picker {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    background: #ffffff;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .date-picker:hover {
+    background: #ff9800;
+    color: white;
+  }
+
+  /* 🎆 APOD Card */
+  .apod-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
+  }
+
+  /* 🖼️ Image */
+  .apod-image {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .apod-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+  }
+
+  /* 🎬 Video */
+  .apod-video {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  /* 🔘 Buttons */
+  .buttons-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .buttons-container button {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .buttons-container button:hover {
+    background: linear-gradient(45deg, #e68900, #e64a19);
+    transform: scale(1.08);
+  }
+
+  /* 📜 Description */
+  .apod-description {
+    margin-top: 15px;
+    font-size: 1rem;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    text-align: left;
+    line-height: 1.5;
+    color: #ddd;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  /* ⚠️ Error Message */
+  .error {
+    color: red;
+    font-weight: bold;
+  }

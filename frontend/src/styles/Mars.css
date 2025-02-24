@@ -1,0 +1,87 @@
+/* Mars Page Container */
+.mars-container {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #0d1b2a;
+  color: white;
+}
+
+/* Heading */
+.mars-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff9800;
+}
+
+/* Grid Layout */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card Style */
+.photo-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* Image */
+.photo-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Photo Info */
+.photo-info {
+  padding: 10px;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.photo-info p {
+  margin: 5px 0;
+}
+
+/* Lightbox (Full-Screen View) */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+}

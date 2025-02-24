@@ -1,0 +1,138 @@
+/* styles.css */
+body {
+  background-color: #111827;
+  /* bg-gray-900 */
+  color: #ffffff;
+  /* text-white */
+}
+
+header {
+  padding: 1rem;
+  /* p-4 */
+  background-color: #1f2937;
+  /* bg-gray-800 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* shadow-md */
+}
+
+header h1 {
+  font-size: 1.5rem;
+  /* text-2xl */
+  font-weight: 700;
+  /* font-bold */
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  /* space-x-6 */
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #d1d5db;
+  /* hover:text-gray-300 */
+}
+
+section.hero {
+  height: 24rem;
+  /* h-96 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url('https://source.unsplash.com/1600x900/?space');
+  background-size: cover;
+  background-position: center;
+}
+
+section.hero h2 {
+  font-size: 2.25rem;
+  /* text-4xl */
+  font-weight: 700;
+  /* font-bold */
+  margin-bottom: 1rem;
+  /* mb-4 */
+}
+
+section.hero p {
+  font-size: 1.125rem;
+  /* text-lg */
+}
+
+section.about {
+  padding: 2.5rem;
+  /* p-10 */
+  text-align: center;
+}
+
+section.about h3 {
+  font-size: 1.875rem;
+  /* text-3xl */
+  font-weight: 600;
+  /* font-semibold */
+  margin-bottom: 1rem;
+  /* mb-4 */
+}
+
+section.about p {
+  color: #9ca3af;
+  /* text-gray-400 */
+  max-width: 36rem;
+  /* max-w-2xl */
+  margin: 0 auto;
+}
+
+section.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-cols-1 */
+  gap: 1.5rem;
+  /* gap-6 */
+  padding: 2.5rem;
+  /* p-10 */
+}
+
+section.features .feature {
+  background-color: #1f2937;
+  /* bg-gray-800 */
+  padding: 1.5rem;
+  /* p-6 */
+  border-radius: 0.5rem;
+  /* rounded-lg */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* shadow-md */
+  text-align: center;
+}
+
+section.features .feature h4 {
+  font-size: 1.5rem;
+  /* text-2xl */
+  font-weight: 600;
+  /* font-semibold */
+  margin-bottom: 0.75rem;
+  /* mb-3 */
+}
+
+section.features .feature p {
+  color: #9ca3af;
+  /* text-gray-400 */
+}
+
+footer {
+  padding: 1rem;
+  /* p-4 */
+  background-color: #1f2937;
+  /* bg-gray-800 */
+  text-align: center;
+  color: #9ca3af;
+  /* text-gray-400 */
+}
