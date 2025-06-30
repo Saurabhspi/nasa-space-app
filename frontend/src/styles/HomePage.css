@@ -1,4 +1,10 @@
-/* Hero Section */
+/* GLOBAL FONT & BACKGROUND */
+.home-container {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #000;
+}
+
+/* HERO SECTION with Galaxy Background */
 .home-container .hero {
   position: relative;
   height: 100vh;
@@ -7,22 +13,9 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: none;
+  background: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
 }
 
-/* Animated Nebula Effect */
-.home-container .nebula {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 50%, rgba(58, 12, 163, 0.5) 10%, rgba(67, 97, 238, 0.4) 40%, rgba(76, 201, 240, 0.3) 70%, transparent 100%);
-  animation: nebulaMovement 15s ease-in-out infinite alternate;
-  opacity: 0.8;
-  z-index: 0;
-  filter: blur(40px);
-}
-
-/* Nebula Animation */
 @keyframes nebulaMovement {
   0% {
     transform: translateX(-10%) translateY(-10%) scale(1);
@@ -37,121 +30,153 @@
   }
 }
 
-/* Starry Background */
-.home-container .stars {
+/* Subtle moving stars overlay */
+.home-container .stars::before {
+  content: '';
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/demo/media/bg-stars.png') repeat;
+  opacity: 0.15;
+  animation: scrollStars 120s linear infinite;
+  z-index: 0;
 }
 
-.home-container .stars::before,
-.home-container .stars::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(white, transparent);
-  opacity: 0.8;
-  animation: starTwinkle 5s infinite alternate;
-}
-
-.home-container .stars::after {
-  animation-delay: 2s;
-}
-
-/* Star Twinkling Animation */
-@keyframes starTwinkle {
+@keyframes scrollStars {
   0% {
-    opacity: 0.5;
-    transform: scale(1);
+    transform: translate(0, 0);
   }
 
   100% {
-    opacity: 1;
-    transform: scale(1.1);
+    transform: translate(-100px, -100px);
   }
 }
 
-/* Overlay for Better Text Visibility */
+/* Dark overlay to keep text readable */
 .home-container .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
 
-/* Hero Content */
+/* HERO TEXT */
 .home-container .hero-content {
   position: relative;
   z-index: 3;
   max-width: 700px;
-  color: white;
+  color: #fff;
   padding: 20px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-/* Title */
 .home-container .hero h1 {
-  font-size: 3.2rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
-  color: #ff5722;
-  font-weight: bold;
+  color: #00c3ff;
+  font-weight: 700;
+  text-shadow: 0 0 8px #00c3ff, 0 0 16px rgba(0, 195, 255, 0.4), 0 0 24px rgba(0, 195, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Description */
+.home-container .hero h1::before {
+  content: "🚀";
+  animation: floatRocket 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatRocket {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
 .home-container .hero p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 2rem;
-  line-height: 1.5;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 4px #000;
 }
 
-/* Home Buttons */
-.home-container .home-buttons {
+/* DISCOVER SECTION */
+.discover-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #0d0d0d;
+}
+
+.discover-section h2 {
+  color: #00c3ff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00c3ff;
+}
+
+.features {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
-.home-container .home-buttons button {
-  background: linear-gradient(45deg, #ff9800, #ff5722);
-  color: #ffffff;
-  border: none;
-  padding: 14px 24px;
-  font-size: 1.1rem;
-  font-weight: bold;
+/* Clickable feature cards */
+.features a.feature-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #1c1c1c;
+  border: 1px solid #00c3ff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(255, 152, 0, 0.5);
 }
 
-.home-container .home-buttons button:hover {
-  background: linear-gradient(45deg, #e68900, #e64a19);
-  transform: scale(1.08);
+.features a.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.4);
 }
 
-/* Responsive Design */
+/* CTA FOOTER */
+.cta-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #000428, #004e92);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #000;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .home-container .hero h1 {
     font-size: 2.5rem;
   }
 
   .home-container .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
-  .home-container .home-buttons {
+  .features {
     flex-direction: column;
+    align-items: center;
   }
 
-  .home-container .home-buttons button {
-    width: 80%;
-    padding: 12px;
+  .features a.feature-card {
+    width: 90%;
   }
 }
-
