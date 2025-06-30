@@ -1,40 +1,40 @@
 // src/components/LiveNasaData.js
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { fetchAPOD, fetchNEO, fetchMarsPhotos } from "../api/nasaApi"; // Adjust path as needed
 import "../styles/LiveNasaData.css";
 
 const LiveNasaData = () => {
   const [apodTitle, setApodTitle] = useState("");
   const [neoCount, setNeoCount] = useState(null);
   const [latestMarsDate, setLatestMarsDate] = useState("");
-
-  const API_KEY = "DEMO_KEY"; // Replace with your actual key if available
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch APOD Title
-    axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
-      .then((res) => setApodTitle(res.data.title))
-      .catch((err) => console.error("Error fetching APOD:", err));
+    const loadData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const apod = await fetchAPOD();
+        const neo = await fetchNEO();
+        const mars = await fetchMarsPhotos();
 
-    // Fetch total NEOs today
-    axios
-      .get(`https://api.nasa.gov/neo/rest/v1/feed/today?detailed=false&api_key=${API_KEY}`)
-      .then((res) => {
-        const count = res.data.element_count;
-        setNeoCount(count);
-      })
-      .catch((err) => console.error("Error fetching NEOs:", err));
+        setApodTitle(apod?.title || "No data available");
+        setNeoCount(neo?.element_count ?? "No data available");
+        setLatestMarsDate(mars?.photos?.[0]?.earth_date || "No data available");
+      } catch (err) {
+        console.error("Error fetching NASA data:", err);
+        setError("Failed to load NASA data. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    // Fetch latest Mars photo date
-    axios
-      .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${API_KEY}`)
-      .then((res) => {
-        const latest = res.data.photos[0]?.earth_date;
-        setLatestMarsDate(latest || "No data found");
-      })
-      .catch((err) => console.error("Error fetching Mars photo date:", err));
+    loadData();
   }, []);
+
+  if (loading) return <p>Loading NASA data...</p>;
+  if (error) return <p className="error-message">{error}</p>;
 
   return (
     <section className="live-nasa-section">
@@ -42,15 +42,15 @@ const LiveNasaData = () => {
       <div className="live-data-cards">
         <div className="live-card">
           <h3>🌌 Today's APOD</h3>
-          <p>{apodTitle || "Loading..."}</p>
+          <p>{apodTitle}</p>
         </div>
         <div className="live-card">
           <h3>☄️ Near-Earth Objects Today</h3>
-          <p>{neoCount !== null ? neoCount : "Loading..."}</p>
+          <p>{neoCount}</p>
         </div>
         <div className="live-card">
           <h3>🚜 Latest Mars Photo Date</h3>
-          <p>{latestMarsDate || "Loading..."}</p>
+          <p>{latestMarsDate}</p>
         </div>
       </div>
     </section>
