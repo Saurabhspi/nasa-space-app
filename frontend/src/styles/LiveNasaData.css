@@ -1,0 +1,50 @@
+/* src/styles/LiveNasaData.css */
+
+.live-nasa-section {
+  padding: 60px 20px;
+  background: #000000;
+  color: white;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.live-nasa-section h2 {
+  font-size: 2rem;
+  color: #00c3ff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00c3ff;
+}
+
+.live-data-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.live-card {
+  background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+  border: 2px solid #00c3ff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  min-width: 220px;
+  max-width: 300px;
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.live-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 195, 255, 0.5);
+}
+
+.live-card h3 {
+  font-size: 1.2rem;
+  color: #7bdeff;
+  margin-bottom: 10px;
+}
+
+.live-card p {
+  font-size: 1rem;
+  color: #ffffff;
+}
